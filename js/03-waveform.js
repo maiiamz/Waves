@@ -6,6 +6,7 @@ let time = 0;
 function preload() {
     soundFormats("mp3");
     song = loadSound(BARS_AUDIO_PATH);
+    bgImage = loadImage("./img/SOAD-deluxe.jpg");
 }
 
 function setup() {
@@ -17,6 +18,12 @@ function setup() {
 
 function draw() {
     background(0);
+
+     // Add image on top with transparency (optional)
+    tint(255, 100); // 100 = transparency level (0-255)
+    image(bgImage, 100, 0, 500, 500);
+    noTint(); // Reset tint so waves aren't affected
+
     const spectrum = fft.analyze();
     
     // Divide spectrum into 4 frequency bands
@@ -37,13 +44,13 @@ function draw() {
     strokeWeight(2);
     
     // Draw all 4 waves overlapping at same center - higher up
-    stroke(0, 255, 0, 200);
+    stroke(255, 0, 0, 200);
     drawAggressiveWave(bass, height * 0.2);
     
-    stroke(0, 255, 0, 150);
+    stroke(255, 0, 0, 150);
     drawAggressiveWave(lows, height * 0.2);
     
-    stroke(0, 255, 0, 100);
+    stroke(255, 0, 0, 100);
     drawAggressiveWave(mids, height * 0.2);
     
     time += 0.05;

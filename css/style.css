@@ -3,6 +3,12 @@ body {
     margin: 0;
 }
 
+body, html {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
     color: white;
     text-align: right;
